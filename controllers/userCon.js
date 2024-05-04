@@ -13,8 +13,8 @@ const loginCon = async (req, res) => {
     });
   } catch (err) {
     res.status(400).send({
-      success: false,Login
-      Login
+      success: false,
+      Login,
       err,
     });
   }
