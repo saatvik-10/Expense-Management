@@ -46,7 +46,7 @@ const Login = () => {
               <Form.Item label="Password" name="password">
                 <Input type="password" required />
               </Form.Item>
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between gap-2">
                 <Link to="/register">
                   Not a user ? Click Here to regsiter !
                 </Link>

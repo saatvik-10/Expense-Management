@@ -30,7 +30,7 @@ app.use('/api/v1/transactions', require('./routes/transactionRoute'));
 //static
 app.use(express.static(path.join(__dirname, './client/build')));
 
-app.get('*', function (res, req) {
+app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
