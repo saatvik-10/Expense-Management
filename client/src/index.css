@@ -4,10 +4,6 @@
   margin: 0;
 }
 
-.content {
-  min-height: 66.65vh;
-}
-
 .filters {
   display: flex;
   align-items: center;
@@ -38,4 +34,10 @@
 
 .filter-tab .ant-select-selector {
   width: 150px !important;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
