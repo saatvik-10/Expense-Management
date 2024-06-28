@@ -31,7 +31,7 @@ app.use('/api/v1/transactions', require('./routes/transactionRoute'));
 app.use(express.static(path.join(__dirname, './client/build')));
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
 // port
