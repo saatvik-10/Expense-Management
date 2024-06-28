@@ -5,8 +5,6 @@ const { loginCon, registerCon } = require('../controllers/userCon');
 const router = express.Router();
 
 // routers
-router.post('/login', loginCon);
-
 // Post || login
 router.post('./login', loginCon);
 

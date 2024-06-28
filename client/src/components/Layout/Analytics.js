@@ -106,21 +106,25 @@ const Analytics = ({ allTransaction }) => {
           {categories.map((category) => {
             const amount = allTransaction
               .filter(
-                transaction =>
+                (transaction) =>
                   transaction.type === 'Income' &&
                   transaction.category === category
               )
               .reduce((acc, transaction) => acc + transaction.amount, 0);
-              return(
-                amount>0 &&(
+            return (
+              amount > 0 && (
                 <div className='card'>
                   <div className='card-body'>
                     <h5>{category}</h5>
-                    <Progress percent={((amount/totalIncomeTurnover)*100).toFixed(0)}/>
-                    </div>
-                    </div>
+                    <Progress
+                      percent={((amount / totalIncomeTurnover) * 100).toFixed(
+                        0
+                      )}
+                    />
+                  </div>
+                </div>
               )
-              )
+            );
           })}
         </div>
         <div className='col-md-4'>
@@ -128,21 +132,25 @@ const Analytics = ({ allTransaction }) => {
           {categories.map((category) => {
             const amount = allTransaction
               .filter(
-                transaction =>
+                (transaction) =>
                   transaction.type === 'Expense' &&
                   transaction.category === category
               )
               .reduce((acc, transaction) => acc + transaction.amount, 0);
-              return(
-                amount>0 &&(
+            return (
+              amount > 0 && (
                 <div className='card'>
                   <div className='card-body'>
                     <h5>{category}</h5>
-                    <Progress percent={((amount/totalExpenseTurnover)*100).toFixed(0)}/>
-                    </div>
-                    </div>
+                    <Progress
+                      percent={((amount / totalExpenseTurnover) * 100).toFixed(
+                        0
+                      )}
+                    />
+                  </div>
+                </div>
               )
-              )
+            );
           })}
         </div>
       </div>
