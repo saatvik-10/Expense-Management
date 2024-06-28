@@ -28,7 +28,9 @@ app.use('/api/v1/users', require('./routes/userRoute'));
 app.use('/api/v1/transactions', require('./routes/transactionRoute'));
 
 //static
-app.use(express.static(path.join(__dirname, './client/build')));
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', function (req, res) {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
