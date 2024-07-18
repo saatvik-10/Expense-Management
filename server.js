@@ -1,10 +1,10 @@
-const express = require('express');
-const morgan = require('morgan');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const colors = require('colors');
-const connectDB = require('./config/connectDB');
-const path = require('path');
+const express = require("express");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const colors = require("colors");
+const connectDB = require("./config/connectDB");
+const path = require("path");
 
 //config dotenv
 dotenv.config();
@@ -16,24 +16,21 @@ connectDB();
 const app = express();
 
 // middlewares
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 
 // routes
 // user routes
-app.use('/api/v1/users', require('./routes/userRoute'));
+app.use("/api/v1/users", require("./routes/userRoute"));
 
 // transaction routes
-app.use('/api/v1/transactions', require('./routes/transactionRoute'));
+app.use("/api/v1/transactions", require("./routes/transactionRoute"));
 
-//static
-const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // port
